@@ -1,0 +1,1091 @@
+/*--------------------------------------------------------------------
+STYLE GENERAL DE LA PAGE
+---------------------------------------------------------------------*/
+*{
+  margin: 0;
+  padding: 0;
+  --black: #3d3d3d; /* Declaration d'une variable pour la couleur */
+  --white: #fcfcfc;
+  --grey: #6e6e6e;
+  --lightgrey: #eaeaea;
+  --blue: #5cadd3;
+  --darkblue: #468cad;
+  max-width: 100vw;
+  box-sizing: border-box; /* prend en compte les marges et bordures dans le dimensionnement des elements */
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden; /* masque la barre de defilement horizontal */
+
+}
+.slideshow{
+
+  overflow-x: hidden;
+  overflow-y: hidden; /* masque la barre de defilement vertical */
+}
+strong{
+  font-weight: normal; /* retire le style par defaut appliqué par le navigateur */
+}
+/*---------------------------------------------------------------------
+STYLE DE LA PARTIE EN TETE DU SITE
+---------------------------------------------------------------------*/
+#Topbar{
+  width: 100vw; /* Fixe la largeur de la Topbar a 100% de la largeur visible */
+  background-color: var(--white);
+  padding-top: 1%;
+  display: flex;
+  flex-direction: column; /* les elements du menu s'organisent en colonne sur la version mobile */
+  align-items: center;
+  max-height: 75px;
+  position: fixed; /* Fixe la barre de navigation en haut de la fenêtre */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10; /* element avec le Z-index le plus fort = element positionné au dessus */
+}
+#Logo img{
+  margin-top: 3%;
+  max-height: 35px;
+}
+#Menu{
+  display: inline-flex;
+  justify-content: center;
+  align-items: baseline;
+  border-top: solid 2px var(--blue); /* barre decorative du menu mobile */
+}
+.menuItems{
+  padding-top: 1%;
+  margin: 1% 2%;
+  color: var(--grey);
+  text-decoration: none; /* retire la decoration par defaut des liens du menu */
+  font-size: 1em;
+  line-height: 1.2em;
+}
+a:hover.menuItems{
+  color: var(--blue);
+  font-family: 'Roboto-Black';
+  -webkit-transition-property: color, font-family;
+  transition-property: color, font-family;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+}
+
+/*---------------------------------------------------------------------
+STYLE GENERAL DES SECTIONS
+---------------------------------------------------------------------*/
+#Content{
+  background-color: var(--white);
+  margin-top: 80px;
+  min-width: 300px;
+}
+.anchor{
+  position: relative; /* Ancre des sections decalées pour prendre en compte le menu fixed */
+  top: -80px;
+}
+.lineBreaker{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.sections{
+  width: 100vw; /* force les sections a prendre 100% de la largeur visible */
+  margin-top: 2.5%;
+}
+.sectionAside{
+  width: 100vw;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.lineBreaker hr{
+  width: 20vw;
+  height: 2px;
+  background-color: var(--black);
+  margin: auto;
+}
+.dotBreaker{
+  background-color: var(--blue);
+  width: 35px; /* width=height=valeur fixe -> carré */
+  height: 35px; /* width=height=valeur fixe -> carré */
+  margin: auto;
+  border: 7px solid var(--white);
+  border-radius: 50%; /* carré + border-radius:50% -> Cercle */
+}
+.sections aside .undertext{
+  font-family: 'Roboto-Medium';
+  margin: 0 auto; /* margin 0 auto -> element centré */
+  padding: 0.5% 1%;
+}
+.sectionTitle{
+  text-align: center;
+  font-family: 'Roboto-Black';
+  color: var(--blue);
+  background-color: var(--white);
+  font-size: 2em;
+  white-space: nowrap; /* Empeche la coupure et le retour a la ligne lors d'un espace */
+}
+/*---------------------------------------------------------------------
+STYLE DU SLIDER
+---------------------------------------------------------------------*/
+#Slider{
+  font-family: 'Roboto';
+  color: var(--black);
+}
+.slides{
+  position: relative; /* En position relative pour placer les elements enfant plus facilement */
+  min-height: 200px;
+  background-size: cover; /* L'image d'arriere plan recouvre l'espace disponible */
+  background-repeat: no-repeat; /* empeche la repetition de l'image d'arriere plan */
+  background-position: center; /* centre l'image d'arriere plan par rapport a l'element */
+}
+#Slide1{
+  background-image: url(../IMG/slider/bg1.jpg); /* Chemin relatif vers l'image d'arriere plan */
+}
+#Slide2{
+  background-image: url(../IMG/slider/bg2.jpg); /* Chemin relatif vers l'image d'arriere plan */
+  transform:scaleX(-1); /* Rotation de l'image sur l'axe X pour obtenir un effet miroir */
+}
+#Slide2 aside{
+  transform:scaleX(-1); /* Seconde rotation cette fois de l'aside sur l'axe X pour remettre le texte dans le sens de lecture */
+}
+.slides aside{
+  position: absolute;
+  height: 100%;
+  background-color: rgba(66,66,66,.75);
+  border-radius: 1px;
+  color: var(--white);
+  max-width: 66%;
+}
+.presentation{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+  text-shadow: .25em .25em .25em var(--black);
+}
+.accroche{
+  font-family: 'Roboto-Italic';
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
+.accroche strong{
+  font-size: 1.5rem;
+  color: var(--blue);
+  font-family: 'Roboto-Bold';
+}
+.sidetext{
+  font-family: 'Roboto-Medium';
+}
+.slideshow a{
+  font-family: 'Roboto';
+  text-decoration: none;
+  text-align: center;
+  color: var(--white);
+  background-color: var(--blue);
+  border-radius: 5%;
+  padding: .25em .5em;
+  margin: 5% auto;
+  min-width: 23%;
+  text-shadow: 0.25em 0.25em 0.25em var(--darkblue);
+}
+.arrow{
+  display: none;
+}
+
+/*---------------------------------------------------------------------
+STYLE DE LA SECTION SERVICES
+---------------------------------------------------------------------*/
+.services{
+  font-family: 'Roboto';
+  color: var(--black);
+}
+#Feature{
+  width: 80%;
+  margin: 0 10%;
+}
+.serviceDot{
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  width: 65px;
+  height: 65px;
+  margin: 0 auto;
+}
+.fa-chart-line, .fa-cubes, .fa-chart-pie{
+    border: 0.1em solid var(--lightgrey);
+    border-radius: 50%;
+    min-height: 65px;
+    min-width: 65px;
+    padding: 15px;
+}
+.dot{
+    position: relative;
+    left: -7px;
+    max-width: 0.75em;
+}
+#ListeServices li{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.serviceWrapper{
+  padding: 2%;
+  background-color: var(--blue);
+  color: var(--white);
+  border: 3px solid var(--white);
+  max-width: 70%;
+}
+#UI .serviceDot{
+  order: 1;
+}
+#UI .serviceWrapper{
+  order: 0;
+}
+
+.serviceWrapper h3{
+  font-size: 1.5em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: underline;
+  font-family: 'Roboto-Bold';
+}
+.serviceWrapper p{
+  font-size: 1em;
+  font-family: 'Roboto-Medium';
+  text-align: justify;
+  text-shadow: 1px 1px 1px var(--darkblue);
+}
+
+
+/*---------------------------------------------------------------------
+STYLE DE LA SECTION PORTFOLIO
+---------------------------------------------------------------------*/
+.wrapperPortfolio{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+#MenuPortfolio ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgba(92, 173, 211, .9);
+  border-radius: 2.5%;
+}
+.menuPortfolio{
+  display: block;
+  padding: 1% 2%;
+  flex-basis: 45%;
+}
+.menuPortfolio:first-child{
+  border-radius: 5% 0 0 5%; /* Arrondi du menu seulement sur le premier element */
+}
+.menuPortfolio:nth-child(4){
+  border-radius: 0 5% 5% 0; /* Arrondi du menu seulement sur le dernier element */
+}
+.menuPortfolio a{
+  font-family: 'Roboto-Medium';
+  text-transform: uppercase;
+  white-space: nowrap; /* Empeche le retour a la ligne lors d'un espace */
+  color: var(--white);
+  text-decoration: none;
+}
+.menuPortfolio:hover a, .menuPortfolio a.selected{
+  color: var(--grey);
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+}
+.containerPortfolio{
+  display: flex;
+  flex-direction: column; /* Organisation des elements en colonne sur la version mobile */
+  justify-content: space-around;
+  align-items: center;
+}
+.itemsPortfolio{
+  margin-top: 2%;
+  position: relative; /* en position relative pour placer les elements enfants plus facilement */
+}
+.itemsLabelMask{
+  opacity: 0; /* par defaut le masque des projet est caché */
+  cursor: pointer; /* modifie le style du pointeur souris */
+  background-color: rgba(0,0,0, .5);
+  padding: 1% 2%;
+  position: absolute; /* en position absolute pour se placer par rapport a l'element parent */
+  bottom: 1.5%;
+  width: 100%;
+  text-transform: capitalize;
+  display: flex;
+  align-items: flex-end; /* aligne les objets contenus, a la fin de l'element */
+  text-decoration: none;
+}
+.itemsPortfolio:hover .itemsLabelMask{
+  opacity: 1; /* Affiche le masque des projets lors du survol de l'image */
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+}
+.itemsLabel{
+  color: var(--white);
+  text-shadow: 0.25em 0.25em 0.25em var(--black);
+  text-decoration: none;
+  font-family: 'Roboto-Medium';
+  margin-left: 2.5%;
+  margin-bottom: 2.5%;
+}
+.itemsLabel h3{
+  font-size: 1em;
+}
+.itemsLabel p{
+  font-size: 0.8em;
+}
+.fa-eye{
+  background-color: var(--blue);
+  border: 0.1rem solid var(--white);
+  border-radius: 50%;
+  color: var(--white);
+  padding: 0.25rem;
+  font-size: 1.75rem;
+  position: absolute;
+  bottom: 75%;
+  right: 5.5%;
+}
+
+/*---------------------------------------------------------------------
+STYLE DE LA SECTION CONTACT
+---------------------------------------------------------------------*/
+#Contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mapMask{
+  order: 1; /* Order fixé a +1 pour placer l'element à la fin */
+  background-color: var(--darkblue); /* Filtre bleu appliqué a la Map */
+}
+#Map iframe{
+  width: 100vw;
+  opacity: .65; /* Donne un effet de transparence a la carte pour laisser aparaitre le filtre bleu */
+}
+#Contact fieldset{
+  width: 100vw;
+  border: none; /* Supprime les bordures par defaut autour du formulaire */
+  text-align: center;
+  color: var(--black);
+}
+#ContactInfos p{
+  font-family: 'Roboto-Medium';
+  font-size: 1.2em;
+}
+
+form{
+background-color: var(--blue);
+padding: .25em;
+}
+form p input, form p textarea{
+  width: 90vw;
+  margin: 0.25em auto;
+  border: none;
+  height: 1.75em;
+  font-family: 'Roboto-Italic';
+  padding: .75em .25em;
+  font-size: 1em;
+}
+form p textarea{
+  height: 5em;
+}
+.button input{
+  width: 50vw;
+  color:var(--blue);
+  background-color: var(--white);
+  font-family: 'Roboto-Bold';
+  font-size: 1.25em;
+  font-variant: small-caps; /* Transforme le texte en petites majuscules */
+  padding: 0;
+}
+
+/*---------------------------------------------------------------------
+STYLE POUR TABLETTES
+---------------------------------------------------------------------*/
+@media screen and (min-width: 480px) and (max-width: 1024px){
+
+/*Style general*/
+.anchor{
+  top: -60px;
+}
+#Content{
+  margin-top: 70px;
+}
+p.undertext{
+  max-width: 75%;
+}
+
+/*Style du header*/
+#Topbar{
+  flex-direction: row; /* Rearrange les elements du menu en ligne */
+  justify-content: space-around;
+}
+#Menu{
+  border: none;
+}
+
+/*Style du Slider*/
+.slides{
+  min-height: 225px;
+}
+.slides aside{
+  max-width: 55%;
+}
+.presentation{
+  margin: 5%;
+}
+
+/*Style des Services*/
+.serviceWrapper{
+  width: 55%;
+  min-height: 150px;
+}
+
+/*Style du Portfolio*/
+.menuPortfolio{
+  margin: 1% 2.5%;
+}
+.containerPortfolio{
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+.itemsPortfolio{
+  width: 45%; /* Empeche les elements du portfolio de prendre plus de 45% de la largeur */
+  margin: 2.5%;
+}
+.itemsPortfolio img{
+  max-width: 100%; /* Empeche les images du portfolio de depasser de l'element parent */
+}
+#MenuPortfolio ul{
+  width: 90%;
+  margin: 0 auto;
+}
+/*----------------------------------
+FERMETURE DU MEDIA QUERIES POUR TABLETTES
+-----------------------------------*/
+}
+
+/*---------------------------------------------------------------------
+STYLE POUR ECRANS DESKTOP
+---------------------------------------------------------------------*/
+@media screen and (min-width: 1024px){
+
+/*Style general*/
+*{
+  padding: 0; /* Reinitialise les marges et les bordures de tout les elements */
+  margin: 0; /* Reinitialise les marges et les bordures de tout les elements */
+  border: none; /* Reinitialise les marges et les bordures de tout les elements */
+}
+#Content{
+  margin-top: 100px;
+}
+.sections{
+  min-height: 240px; /* Donne une taille minimale aux sections */
+}
+.sectionTitle{
+  color: var(--black);
+  font-size: 2.5rem;
+}
+.lineBreaker hr{
+  width: 4.5%;
+  height: 1px;
+  background-color: var(--lightgrey);
+  margin: 0;
+}
+.dotBreaker{
+  margin: 0;
+  width: 25px;
+  height: 25px;
+  border: 0.25em solid var(--white);
+}
+.sections aside .undertext{
+  font-family: 'Roboto';
+  font-size: 1em;
+  padding: 1%;
+  text-transform: initial;
+}
+.anchor{
+  top: -100px; /* Decalage de l'ancre pour tenir compte de la place prise par le header */
+}
+/*Style du header*/
+#Topbar{
+  position: fixed; /* header en position fixe */
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  font-family: 'Roboto-Bold', sans-serif;
+  max-height: 100px; /* donne une hauteur maximale a la topbar */
+  max-width: 100vw; /* empeche la topbar de prendre plus de 100% de la largeur disponible */
+  flex-direction: row; /* rearrangement des elements en ligne */
+  justify-content: space-between;
+  padding: 2% 1%;
+}
+#Logo{
+  margin-left: 7vw;
+}
+#Logo img{
+  margin: 0;
+  max-height: none; /* Retire la hauteur max definie dans le style pour mobile */
+}
+#Menu{
+  border-top: none; /* Retire la bordure decorative du menu sur mobile */
+  margin-right: 7vw;
+}
+.menuItems{
+  font-family: 'Roboto-Medium';
+  color: var(--grey);
+  padding: 0 15px;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 100px;
+  padding-top: 9px; /* padding top equivalent a la bordure top du :hover afin d'eviter le decalage lors du survol */
+}
+a:hover.menuItems{
+  border-top: 9px solid var(--blue);
+  color: var(--black);
+  padding: 0 15px;
+  -webkit-transition-property: color, border-top, padding;
+  transition-property: color, border-top, padding;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+}
+
+/*Style du Slider*/
+.slideshow{
+  height: 80%;
+}
+.slides{
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 570px;
+}
+.arrow{
+  display: inline-block;
+  position: absolute;
+  top: 250px;
+  background-color: rgba(0,0,0,.5); /* couleur avec effet de transparence */
+  color: var(--white);
+  font-weight: lighter;
+  font-size: 30px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+.arrow:hover{
+  background-color: rgba(255,255,255,.5);
+  color: var(--black);
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+  cursor: pointer;
+}
+.arrowLeft{
+  text-align: right;
+  left: -39.5px;
+}
+.arrowRight{
+  text-align: left;
+  right: -25px;
+}
+.arrow svg{
+  margin: 22px;
+}
+.slides aside{
+  background-color: transparent;
+  max-width: 45%;
+  margin: 13% 0% 0% 5%;
+  position: absolute;
+}
+.presentation{
+  font-family: 'Roboto-Medium';
+  font-size: 0.9rem;
+  color: var(--white);
+  text-shadow: none;
+  justify-content: flex-start;
+}
+.accroche{
+  display: inline;
+  font-size: 2rem;
+  font-family: 'Roboto-Black';
+}
+.accroche strong{
+  font-size: 2.5rem;
+  font-family: 'Roboto-Black';
+}
+.sidetext{
+  margin: 2% 0;
+}
+.slideshow a{
+  border-radius: 4.5%;
+  font-family: 'Roboto-Black';
+  font-size: 1.2rem;
+  text-shadow: none;
+  margin: 0;
+  margin-top: 2.5%;
+  padding: 2%;
+  white-space: nowrap;
+  border-bottom: 0.2em solid #538ca9;
+}
+.slideshow a:hover{
+  background-color: var(--white);
+  color: var(--blue);
+  -webkit-transition-property: background-color, color;
+  transition-property: background-color, color;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+}
+#Slide2{
+  position: absolute;
+  left: -200%; /* Decalage de la seconde slide sur la version desktop */
+  top: 15%;
+}
+.statusBar{
+  width: 100%;
+  background-color: var(--lightgrey);
+  position: relative;
+  top: -7px;
+}
+.bar{
+  background-color: var(--blue);
+  width: 10%;
+  height: 3px;
+}
+
+/*Style des Services*/
+#Services aside{
+  width: 100vw;
+}
+#ServicesContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#Feature{
+  display: block;
+  width: 510px;
+  height: 320px;
+  max-width: 60vw;
+  margin: 0 2.5% 0 7.5%;
+}
+#ListeServices{
+  margin-right: 7%;
+  margin-top: 5%;
+  max-width: 45%;
+}
+#ListeServices li, #ListeServices li:nth-child(2){
+  background: none;
+  justify-content: center;
+}
+.serviceWrapper{
+  background-color: transparent;
+  color: var(--black);
+  text-shadow: none;
+}
+.serviceWrapper h3{
+  font-size: 1.2em;
+  text-transform: initial;
+  text-align: left;
+  text-decoration: none;
+}
+#UI .serviceDot{
+  order: 0;
+  margin: 35px;
+}
+.serviceWrapper p {
+  font-size: 0.9em;
+  text-align: left;
+  font-family: 'Roboto';
+  margin: 2.5% 0;
+  text-shadow: none;
+}
+#ListeServices li, #ListeServices li:nth-child(2){
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.serviceDot{
+  width: 50px;
+  height: 50px;
+  margin: 35px;
+}
+
+/*Style du Portfolio*/
+#Portfolio, #Portfolio .sectionTitle{
+  background-color: #f5f5f5;
+}
+#MenuPortfolio ul{
+  background-color: var(--lightgrey);
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 30%;
+  margin: 30px auto;
+  border-radius: 7px;
+}
+.menuPortfolio:hover a, .menuPortfolio.selected a{
+  color: var(--white);
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+}
+.menuPortfolio{
+  margin: 0;
+  padding: 10px 0;
+  padding-bottom: 10px;
+  flex-basis: 25%;
+  line-height: 0.75rem;
+}
+.menuPortfolio:hover, .menuPortfolio.selected{
+  border-bottom: 5px solid var(--darkblue);
+  padding-bottom: 0;
+  padding-top: 15px;
+  background-color: var(--blue);
+  -webkit-transition-property: border-bottom, background-color;
+  transition-property: border-bottom, background-color;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+}
+.menuPortfolio:hover:after, .menuPortfolio.selected:after{
+  display: block;
+  position: relative;
+  top: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-size: 15px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Font-Awesome';
+  font-weight: 900;
+  color: var(--darkblue);
+  content: '\f0d7';
+  background-color: transparent;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+}
+.menuPortfolio a{
+  color: var(--grey);
+  font-size: 1em;
+  text-transform: capitalize;
+}
+.containerPortfolio{
+  margin: 0 3.75%;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.itemsPortfolio{
+  width: auto;
+  margin: 1%;
+}
+.itemsPortfolio img{
+  width: 20vw;
+}
+.itemsLabel{
+  background-color: rgba(0,0,0, .5);
+  min-width: 100%;
+  margin: 0;
+  padding: 1% 2%;
+}
+.fa-eye{
+  min-width: 35px;
+  height: 35px;
+  padding: 9px;
+  font-size: 5px;
+  bottom: 70%;
+}
+.itemsLabelMask{
+  width: 20vw;
+  padding: 0;
+  background-color: transparent;
+  bottom: 2.5%;
+}
+.itemsLabelMask:hover{
+  opacity: 1;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+}
+
+/*Style du Contact*/
+#Contact{
+  display: block;
+  position: relative;
+}
+#Map iframe{
+  opacity: 0.7;
+}
+.mapMask, #Map iframe{
+  min-height: 550px;
+  width: 100%;
+  margin-bottom: -1%;
+}
+#ContactInfos{
+  margin-bottom: 3%;
+}
+#ContactInfos .lineBreaker{
+  display: none;
+}
+#Contact fieldset{
+  position: absolute;
+  top: 5.5%;
+  right: 5.5%;
+  max-width: 25.5%;
+  background-color: rgba(240,240,255,.75);
+  padding: 2% 1%;
+}
+#Contact fieldset form{
+  background-color: transparent;
+}
+.formElements, .formElements *{
+  width: 100%;
+}
+.formElements *{
+  border: 0.5px solid var(--grey);
+  border-radius: 5px;
+}
+#ContactInfos h2{
+  font-size: 1.5em;
+  text-align: left;
+  background-color: transparent;
+  margin-bottom: 3%;
+  text-transform: capitalize;
+  font-family: 'Roboto-Black';
+  font-weight: bold;
+}
+#ContactInfos p, #ContactInfos h3{
+  font-family: 'Roboto-Medium';
+  font-size: 0.9em;
+  text-align: left;
+  color: var(--grey);
+  margin: 0;
+  padding: 1%;
+}
+#ContactMessage{
+  font-style: normal;
+  height: 150px;
+}
+form p input, form p textarea{
+  font-family: 'Roboto';
+}
+form p textarea{
+  padding-top: 0.5em;
+}
+form .button input{
+  width: 100px;
+  height: 30px;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 3px 6px;
+  color: var(--white);
+  background-color: var(--blue);
+  white-space: nowrap;
+  text-transform: capitalize;
+  text-shadow: 1px 1px 1px var(--darkblue);
+  font-variant: normal;
+  float: left;
+  border-bottom: 3px solid var(--darkblue);
+  border-radius: 3px;
+}
+form .button:hover input{
+  cursor: pointer;
+  background-color: var(--white);
+  color: var(--blue);
+  border-bottom: 3px solid var(--darkblue);
+  text-shadow: none;
+  -webkit-transition-property: color, background-color, border-bottom, text-shadow;
+  transition-property: color, background-color, border-bottom, text-shadow;
+  -webkit-transition-duration: .33s;
+  transition-duration: .33s;
+}
+::placeholder{
+  padding-left: 0.5em;
+  font-size: 1em;
+}
+::-webkit-input-placeholder {
+  padding-left: 0.5em;
+  font-size: 1em;
+}
+::-moz-placeholder {
+ padding-left: 0.5em;
+ font-size: 1em;
+}
+::-ms-input-placeholder {
+  padding-left: 0.5em;
+  font-size: 1em;
+}
+::-moz-placeholder {
+  padding-left: 0.5em;
+  font-size: 1em;
+}
+
+/*----------------------------------
+FERMETURE DU MEDIA QUERIES DESKTOP
+-----------------------------------*/
+}
+
+/*---------------------------------------------------------------------
+STYLE POUR ECRANS XXL
+---------------------------------------------------------------------*/
+@media screen and (min-width: 3840px){
+.anchor{
+  top: -150px;
+}
+.sectionTitle{
+  font-size: 3.5rem;
+}
+.sections aside .undertext{
+  font-size: 1.5rem;
+}
+.menuItems{
+  font-size: 1.9rem;
+  line-height: 150px;
+  padding-top: 9px;
+}
+.slides{
+  min-height: 1140px;
+}
+.slideshow a{
+  min-width: unset;
+  font-size: 1.75rem;
+}
+.arrow{
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  font-size: 60px;
+}
+.arrowRight{
+  right: -30px;
+}
+.arrowLeft{
+  left: -45px;
+}
+.presentation{
+  font-size: 1.5rem;
+}
+.accroche strong{
+  font-size: 2.75rem;
+}
+#ServicesContainer{
+  margin: 2.5% 0 2.5% 5%;
+}
+#Feature{
+  width: 1500px;
+  height: 880px;
+  margin-left: 3.5%;
+}
+#ListeServices{
+  margin-right: 2.5%;
+}
+#ListeServices li, #ListeServices li:nth-child(2){
+  display: flex;
+}
+
+.serviceWrapper h3{
+  font-size: 1.75rem;
+}
+.serviceWrapper p{
+  line-height: 1.75rem;
+  font-size: 1.75rem;
+}
+.serviceDot{
+  width: 100px;
+  height: 100px;
+  margin: 70px;
+}
+.fa-chart-line, .fa-cubes, .fa-chart-pie{
+  min-height: 130px;
+  min-width: 130px;
+  padding: 30px;
+}
+.dot{
+  height: 1.5rem !important;
+  width: 1.5rem !important;
+  left: -15px;
+  max-width: none;
+}
+.menuPortfolio{
+  line-height: normal;
+}
+.menuPortfolio a{
+  font-size: 1.5rem;
+  padding: 0;
+  padding-top: .5rem;
+}
+.itemsPortfolio{
+  flex-basis: 20%;
+}
+.itemsLabelMask{
+  width: 100%;
+  bottom: 0.5%;
+}
+.itemsLabel{
+  padding: 3%;
+}
+.itemsLabel h3{
+  font-size: 1.75rem;
+}
+.itemsLabel p{
+  font-size: 1.5rem;
+}
+.fa-eye{
+  min-width: 70px;
+  height: 70px;
+  padding: 18px;
+  font-size: 10px;
+}
+.mapMask, #Map iframe {
+  min-height: 1024px;
+}
+#Contact fieldset{
+  padding: .5% .25%;
+  min-height: 80%;
+  top: 9.5%;
+}
+#ContactInfos h2{
+  font-size: 3rem;
+}
+#ContactInfos h3{
+  font-size: 2rem;
+}
+#ContactInfos p{
+  font-size: 2rem;
+}
+form p input, form p textarea{
+  font-size: 2.5rem;
+  height: 2.75rem;
+  margin-top: 2.5%;
+}
+form .button input{
+  font-size: 1.25rem;
+  width: 150px;
+  height: 45px;
+  margin-top: 5%;
+}
+
+/*----------------------------------
+FERMETURE DU MEDIA QUERIES XXL
+-----------------------------------*/
+}
